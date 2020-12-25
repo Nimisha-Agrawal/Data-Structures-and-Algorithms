@@ -5,21 +5,17 @@ function runProgram(input){
     var array = input_arr[0].split(" ").map(Number)
     var total_tax = 0
     
-    for(var i = 0; i < array.length; i++)
+    for(var i = 0; i < no_groups; i++)
     {
+        var max = i
         for(var j = i+1; j < array.length; j++)
         {
-            if(array[j] > array[i])
+            if(array[j] > array[max])
             {
-                var swap = array[i]
-                array[i] = array[j]
-                array[j] = swap
+                max = j
             }
         }
-    }
-
-    for(var i = 0; i < no_groups ; i++)
-    {
+        [array[i],array[max]] = [array[max], array[i]]
         total_tax += array[i]
     }
 
