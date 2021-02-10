@@ -21,6 +21,10 @@ function runProgram(input){
                     ||(supportStack[supportStack.length -1] == "(" && givenStack[j] == ")")){
                         supportStack.pop()
                     }
+                    else{
+                        console.log("not balanced")
+                        return
+                    }
                }
            }
            if(flag &&supportStack.length == 0){
