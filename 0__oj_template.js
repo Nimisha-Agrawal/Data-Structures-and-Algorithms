@@ -1,19 +1,5 @@
 function runProgram(input){
-    input = Number(input)
-
-    function ways(n){
-        if(n == 0){
-            return 1
-        }
-        else if (n < 0){
-            return 0
-        }
-        else{
-            return ways(n-1) + ways(n-3) + ways(n-5)
-        }
-    }
-
-    console.log(ways(input))
+    
 }
 // process.stdin.resume();
 // process.stdin.setEncoding("ascii");
@@ -31,7 +17,7 @@ function runProgram(input){
 //     process.exit(0);
 // });
 
-runProgram(`7`)
+runProgram(``)
 
 
 
