@@ -1,20 +1,27 @@
-// Time Complexity => O(1)
-// Space Complexity => O(1)
+// Time Complexity => O()
+// Space Complexity => O()
 function runProgram(input){
     let array = input.trim().split("\n").map(Number)
 
     for(let i = 0; i < array.length; i++){
-        high_exchange(array[i])
+        console.log(high_exchange(array[i], {}))
     }
 
-    function high_exchange(number){
-
-        let exchange1 = Math.round(number/2 + number/3 + number/4)
+    function high_exchange(number, memo){
+        if(memo[number] !== undefined){
+            return memo[number]
+        }
+        if(number <= 2){
+            return number
+        }
+        let exchange1 = high_exchange(Math.floor(number/2), memo) + high_exchange(Math.floor(number/3), memo) + high_exchange(Math.floor(number/4), memo)
         if(exchange1 < number){
-            console.log(number)
+            memo[number] = number
+            return number
         }
         else{
-            console.log(exchange1)
+            memo[number] = exchange1
+            return exchange1
         }
     }
 }
@@ -34,8 +41,7 @@ process.on("SIGINT", function () {
     process.exit(0);
 });
 
-runProgram(`12
-2`)
+runProgram(`145`)
 
 
 
